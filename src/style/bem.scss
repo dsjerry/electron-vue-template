@@ -1,0 +1,29 @@
+$namespace: "el" !default;
+$block-sign: "-" !default;
+$ele-sign: "__" !default;
+$mod-sign: "--" !default;
+
+@mixin b($block) {
+    $B:#{$namespace + $block-sign + $block};
+    .#{$B} {
+        @content;
+    }
+}
+
+@mixin e($e) {
+    $selector: &;
+    @at-root {
+        #{$selector + $ele-sign + $e} {
+            @content;
+        }
+    }
+}
+
+@mixin m($m) {
+    $selector: &;
+    @at-root {
+        #{$selector + $mod-sign + $m} {
+            @content;
+        }
+    }
+}
